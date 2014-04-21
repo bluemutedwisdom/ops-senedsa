@@ -59,7 +59,7 @@ module Senedsa
           opts.separator "Service options:"
           opts.on('-h', '--hostname HOSTNAME',           String,                 "service hostname")                                   { |hostname|  @cli_options[:svc_hostname] = hostname }
           opts.on('-S', '--service SVC_DESCR',           String,                 "service description")                                { |svc_descr| @cli_options[:svc_descr] = svc_descr }
-          opts.on('-s', '--status STATUS',               SendNsca::STATUS.keys,  "service status: #{SendNsca::STATUS.keys.join ', '}") { |status|    @cli_options[:svc_status] = status }
+          opts.on('-s', '--status STATUS',               SendNsca::STATUS.keys,  "service status: #{SendNsca::STATUS.keys.join ', '}") { |status|    @cli_options[:svc_status] = status.downcase.to_sym }
           opts.separator ""
 
           opts.separator "General options:"
